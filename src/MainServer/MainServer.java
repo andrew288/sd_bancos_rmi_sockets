@@ -11,17 +11,12 @@ import java.rmi.registry.Registry;
 public class MainServer {
 
 	public static void main(String[] args) throws Exception {
-		
-		InputStreamReader is = new InputStreamReader(System.in);
-	      BufferedReader br = new BufferedReader(is);
-	      String portNum, registryURL; 
+	      String registryURL; 
 	      try{     
-	         System.out.println("Ingresa el puerto del registro RMI:");
-	         portNum = (br.readLine()).trim();
-	         int RMIPortNum = Integer.parseInt(portNum);
+	         int RMIPortNum = 2000;
 	         startRegistry(RMIPortNum);
 	         MainServerImplement exportedObj = new MainServerImplement();
-	         registryURL = "rmi://localhost:" + portNum + "/mainServer";
+	         registryURL = "rmi://localhost:" + 2000 + "/mainServer";
 	         Naming.rebind(registryURL, exportedObj);
 	/**/     System.out.println("Servidor registrado.  El registro contiene actualmente:");
 	/**/     listRegistry(registryURL);

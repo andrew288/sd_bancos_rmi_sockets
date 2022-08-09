@@ -82,6 +82,7 @@ public class MainServerImplement extends UnicastRemoteObject implements MainServ
         }
 		
 		String aux = "La cuenta no existe";
+		result = aux;
 		for (Thread thread : bankClients) {
 			aux = ((BankClient) thread).getResult();
 			System.out.println(aux);
@@ -122,7 +123,8 @@ public class MainServerImplement extends UnicastRemoteObject implements MainServ
             thread.join();
         }
 		
-		String aux = "La cuenta no existe";
+		String aux = "La cuenta no existe o el retiro exede al saldo actual";
+		result = aux;
 		for (Thread thread : bankClients) {
 			aux = ((BankClient) thread).getResult();
 			System.out.println(aux);
@@ -163,6 +165,7 @@ public class MainServerImplement extends UnicastRemoteObject implements MainServ
         }
 		
 		String aux = "La cuenta no existe";
+		result = aux;
 		for (Thread thread : bankClients) {
 			aux = ((BankClient) thread).getResult();
 			System.out.println(aux);
